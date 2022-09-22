@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TetrisBlock : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class TetrisBlock : MonoBehaviour
     public static int height = 21;
     public static int width = 12;
     private static Transform[,] grid = new Transform[width, height];
-
+    public Text[] blockValues = new Text[4];
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        for (int i = 0; i < 4; i++) {
+            blockValues[i].text = Random.Range(-99,99).ToString();
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class TetrisBlock : MonoBehaviour
                 transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
             }
         }
+        
 
         if (Time.time - previousTime > (Input.GetKey(KeyCode.DownArrow) ? fallTime / 10 : fallTime )) {
             transform.position += new Vector3(0f, -1f, 0f);
@@ -56,7 +60,10 @@ public class TetrisBlock : MonoBehaviour
 
                 if(this.transform.position.y <= 0){
                     FindObjectOfType<Spawner>().NewGameBlocks();
-                }  
+                } else {
+                    Debug.Log(this.transform.position.y);
+                    Debug.Log("Game Over");
+                }
             }
             previousTime = Time.time;
         }
@@ -67,14 +74,13 @@ public class TetrisBlock : MonoBehaviour
     //     for (int i = height -1; i >=0; i++) {
     //         if(HasLine(i)) {
     //             DeleteLine(i);
-    //             RowDown(i);
+    //             // RowDown(i);
     //         }
     //     }
     // }
 
     // bool HasLine(int i) {
-    //     Debug.Log(i);
-    //     for(int j = 0; j< width; j++) {
+    //     for(int j = 0; j< width-1; j++) {
     //         if(grid[j, i] == null) {
     //             return false;
     //         }
@@ -85,7 +91,7 @@ public class TetrisBlock : MonoBehaviour
 
 
     // void DeleteLine(int i) {
-    //     for(int j = 0; j< width; j++) {
+    //     for(int j = 0; j< width-1; j++) {
     //         Destroy(grid[j, i].gameObject);
     //         grid[j, i] = null;
     //     }
@@ -106,7 +112,7 @@ public class TetrisBlock : MonoBehaviour
     void AddToGrid() {
         foreach (Transform children in transform) {
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
-            int roundedY = Mathf.RoundToInt(children.transform.position.y);     
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
 
             grid[roundedX, roundedY] = children;
         }
@@ -124,7 +130,7 @@ public class TetrisBlock : MonoBehaviour
             }
 
             if(grid[roundedX, roundedY] != null){
-                Debug.Log("grid filled");
+                Debug.Log("occupied block");
                 return false;
             }
 
