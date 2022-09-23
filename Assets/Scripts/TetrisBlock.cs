@@ -51,6 +51,9 @@ public class TetrisBlock : MonoBehaviour
         if (Time.time - previousTime > (Input.GetKey(KeyCode.DownArrow) ? fallTime / 10 : fallTime )) {
             transform.position += new Vector3(0f, -1f, 0f);
 
+                Debug.Log(this.transform.position.x);
+                Debug.Log(this.transform.position.y);
+
             if(!ValidMove()){
                 transform.position -= new Vector3(0f, -1f, 0f);
                 AddToGrid();
@@ -58,7 +61,7 @@ public class TetrisBlock : MonoBehaviour
 
                 this.enabled = false;
 
-                if(this.transform.position.y <= 0){
+                if(this.transform.position.y <= height-2){
                     FindObjectOfType<Spawner>().NewGameBlocks();
                 } else {
                     Debug.Log(this.transform.position.y);
