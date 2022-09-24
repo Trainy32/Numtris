@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class TetrisBlock : MonoBehaviour
 {
     public Vector3 rotationPoint;
@@ -10,8 +11,9 @@ public class TetrisBlock : MonoBehaviour
     public float fallTime = 0.4f;
     public static int height = 21;
     public static int width = 12;
-    private static Transform[,] grid = new Transform[width, height];
+    private static Transform[,] grid = new Transform[width, height+1];
     public Text[] blockValues = new Text[4];
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,21 +53,18 @@ public class TetrisBlock : MonoBehaviour
         if (Time.time - previousTime > (Input.GetKey(KeyCode.DownArrow) ? fallTime / 10 : fallTime )) {
             transform.position += new Vector3(0f, -1f, 0f);
 
-                Debug.Log(this.transform.position.x);
-                Debug.Log(this.transform.position.y);
-
             if(!ValidMove()){
                 transform.position -= new Vector3(0f, -1f, 0f);
                 AddToGrid();
-                // CheckForLines();
+                CheckForLines();
 
                 this.enabled = false;
 
-                if(this.transform.position.y <= height-2){
+                if(this.transform.position.y <= height-3){
                     FindObjectOfType<Spawner>().NewGameBlocks();
                 } else {
-                    Debug.Log(this.transform.position.y);
                     Debug.Log("Game Over");
+                    gameManager.I.gameOver();
                 }
             }
             previousTime = Time.time;
@@ -73,44 +72,45 @@ public class TetrisBlock : MonoBehaviour
         
     }
 
-    // void CheckForLines() {
-    //     for (int i = height -1; i >=0; i++) {
-    //         if(HasLine(i)) {
-    //             DeleteLine(i);
-    //             // RowDown(i);
-    //         }
-    //     }
-    // }
+    void CheckForLines() {
+        for (int i = height-1; i >=0; i--) {
+            if(HasLine(i)) {
+                DeleteLine(i);
+                RowDown(i);
+            }
+        }
+    }
 
-    // bool HasLine(int i) {
-    //     for(int j = 0; j< width-1; j++) {
-    //         if(grid[j, i] == null) {
-    //             return false;
-    //         }
-    //     }
+    bool HasLine(int i) {
+        Debug.Log(i);
+        for(int j = 0; j< width; j++) {
+            if(grid[j, i] == null) {
+                return false;
+            }
+        }
 
-    //     return true;
-    // }
+        return true;
+    }
 
 
-    // void DeleteLine(int i) {
-    //     for(int j = 0; j< width-1; j++) {
-    //         Destroy(grid[j, i].gameObject);
-    //         grid[j, i] = null;
-    //     }
-    // }
+    void DeleteLine(int i) {
+        for(int j = 0; j< width; j++) {
+            Destroy(grid[j, i].gameObject);
+            grid[j, i] = null;
+        }
+    }
 
-    // void RowDown(int i) {
-    //     for (int y = i; y < height; y++){
-    //         for (int j = 0; j < width; j++) {
-    //             if(grid[j, y] != null) {
-    //                 grid[j, y-1] = grid[j, y];
-    //                 grid[j, y] = null;
-    //                 grid[j, y-1].transform.position -= new Vector3(0, 1, 0);
-    //             }   
-    //         }
-    //     }
-    // }
+    void RowDown(int i) {
+        for (int y = i; y < height; y++){
+            for (int j = 0; j < width; j++) {
+                if(grid[j, y] != null) {
+                    grid[j, y-1] = grid[j, y];
+                    grid[j, y] = null;
+                    grid[j, y-1].transform.position -= new Vector3(0, 1, 0);
+                }   
+            }
+        }
+    }
 
     void AddToGrid() {
         foreach (Transform children in transform) {
