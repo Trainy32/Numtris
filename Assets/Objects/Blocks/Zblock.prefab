@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 2454773532180501502}
   - component: {fileID: 2454773532180501503}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Square3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,7 +368,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.8745098, g: 0.39215687, b: 0.33333334, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 2454773532558008992}
   - component: {fileID: 2454773532558008993}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Square2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.8745098, g: 0.39215687, b: 0.33333334, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 2454773533213065795}
   - component: {fileID: 2454773533213065792}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Square0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +538,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.8745098, g: 0.39215687, b: 0.33333334, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 2454773533903222796}
   - component: {fileID: 2454773533903222797}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Square1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,7 +707,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.8745098, g: 0.39215687, b: 0.33333334, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -773,6 +773,11 @@ MonoBehaviour:
   - {fileID: 7374126235237251357}
   - {fileID: 8738300380762017303}
   - {fileID: 7793882572627494219}
+  CubeArr:
+  - {fileID: 2454773533213065794}
+  - {fileID: 2454773533903222799}
+  - {fileID: 2454773532558008995}
+  - {fileID: 2454773532180501473}
 --- !u!1 &3053688665363553109
 GameObject:
   m_ObjectHideFlags: 0
