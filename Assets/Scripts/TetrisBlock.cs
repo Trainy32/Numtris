@@ -13,13 +13,44 @@ public class TetrisBlock : MonoBehaviour
     public static int width = 12;
     private static Transform[,] grid = new Transform[width, height+1];
     public Text[] blockValues = new Text[4];
+    public GameObject[] CubeArr;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        setNumbers();
+        setBlockColor();
+
+    }
+
+    void setNumbers() {
         for (int i = 0; i < 4; i++) {
-            blockValues[i].text = Random.Range(-99,99).ToString();
+            blockValues[i].text = Random.Range(-30,30).ToString();
+        }
+    }
+
+    void setBlockColor() {
+        for (int i = 0; i < 4; i++) {
+            int num = int.Parse(blockValues[i].text);
+
+            switch(num) {
+                case int n when (num <= -15) :
+                    CubeArr[i].GetComponent<SpriteRenderer>().material.color = new Color(255/255f, 94/255f, 94/255f, 255/255f);
+                    break;
+                case int n when (num > -15 && num < 0 ):
+                    CubeArr[i].GetComponent<SpriteRenderer>().material.color = new Color(255/255f, 188/255f, 188/255f, 1.0f);
+                    break;
+                case int n when (num == 0 ):
+                    CubeArr[i].GetComponent<SpriteRenderer>().material.color = new Color(255/255f, 255/255f, 255/255f, 1.0f);
+                    break;
+                case int n when (num > 0 && num <= 15) :
+                    CubeArr[i].GetComponent<SpriteRenderer>().material.color = new Color(205/255f, 255/255f, 185/255f, 1.0f);
+                    break;
+                case int n when (num > 15 && num <= 30) :
+                    CubeArr[i].GetComponent<SpriteRenderer>().material.color = new Color(140/255f, 255/255f, 94/255f, 1.0f);
+                    break;
+            } 
         }
     }
 

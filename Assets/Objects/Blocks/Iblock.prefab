@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 2200020519190158980}
   - component: {fileID: 2200020519190158983}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Square0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.30588236, g: 0.83137256, b: 0.6901961, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -415,8 +415,8 @@ Transform:
   - {fileID: 2200020519813068508}
   - {fileID: 2200020519190158980}
   - {fileID: 2200020520951689707}
-  - {fileID: 2200020521154858892}
   - {fileID: 2200020520803802630}
+  - {fileID: 2200020521154858892}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -437,8 +437,13 @@ MonoBehaviour:
   blockValues:
   - {fileID: 4796119779417275361}
   - {fileID: 3189411555008544453}
-  - {fileID: 6978649077898976997}
   - {fileID: 4583732194744677107}
+  - {fileID: 6978649077898976997}
+  CubeArr:
+  - {fileID: 2200020519190158981}
+  - {fileID: 2200020520951689704}
+  - {fileID: 2200020520803802631}
+  - {fileID: 2200020521154858893}
 --- !u!1 &2200020519813068509
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +539,7 @@ GameObject:
   - component: {fileID: 2200020520803802630}
   - component: {fileID: 2200020520803802649}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Square2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,7 +559,7 @@ Transform:
   m_Children:
   - {fileID: 3404285265269085114}
   m_Father: {fileID: 2200020519359626441}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2200020520803802649
 SpriteRenderer:
@@ -598,7 +603,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.30588236, g: 0.83137256, b: 0.6901961, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -619,7 +624,7 @@ GameObject:
   - component: {fileID: 2200020520951689707}
   - component: {fileID: 2200020520951689706}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Square1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,7 +688,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.30588236, g: 0.83137256, b: 0.6901961, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -704,7 +709,7 @@ GameObject:
   - component: {fileID: 2200020521154858892}
   - component: {fileID: 2200020521154858895}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Square3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,7 +729,7 @@ Transform:
   m_Children:
   - {fileID: 2457850935198292938}
   m_Father: {fileID: 2200020519359626441}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2200020521154858895
 SpriteRenderer:
@@ -768,7 +773,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300046, guid: bbf8a399dfd8c774199dfc04a62fec1c, type: 3}
-  m_Color: {r: 0.30588236, g: 0.83137256, b: 0.6901961, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
